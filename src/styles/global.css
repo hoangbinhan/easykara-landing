@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-blackout: #000000;
+  --color-graphite-deep: #151617;
+  --color-graphite: #242628;
+  --color-white: #ffffff;
+  --color-neon: #34d59a;
+
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "GeistMono", monospace;
+}
