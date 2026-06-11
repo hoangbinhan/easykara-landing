@@ -1,0 +1,146 @@
+---
+import { en as t } from '../i18n/en';
+
+const waveHeights = [
+  4, 6, 8, 12, 16, 20, 18, 24, 28, 30, 26, 32, 36, 38, 34, 30, 35, 38, 36, 30,
+  35, 38, 36, 32, 28, 35, 38, 36, 30, 28, 24, 30, 35, 38, 36, 32, 28, 35, 38,
+  36, 30, 28, 35, 38, 36, 30, 25, 20, 24, 28, 30, 26, 22, 18, 14, 10, 8, 12,
+  10, 8, 6, 4, 8, 6, 4, 6, 8, 10, 8, 6, 4, 6, 8, 6, 4, 6, 4, 6, 8, 4,
+];
+const playheadAt = 34;
+const syllables = ['Per·', 'fect', 'ti·', 'ming', 'Ev·', 'ery', 'time'];
+---
+
+<section class="min-h-screen pt-16 flex items-center">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+    <div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
+        {t.hero.headline}
+      </h1>
+      <p class="mt-6 text-lg text-white/60 max-w-lg leading-relaxed">
+        {t.hero.subtext}
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-start gap-4">
+        <a
+          href="https://app.easykara.com"
+          class="bg-neon text-blackout font-semibold px-8 py-3 rounded-full hover:bg-neon/90 transition-colors duration-200 whitespace-nowrap"
+        >
+          {t.hero.primaryCta}
+        </a>
+        <a
+          href="#demo"
+          class="flex items-center gap-2.5 text-white/60 hover:text-white transition-colors duration-200 py-3"
+        >
+          <span
+            class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0"
+            aria-hidden="true"
+          >
+            <svg width="10" height="11" viewBox="0 0 10 11" fill="currentColor">
+              <path d="M0 0.5l10 5-10 5V0.5z" />
+            </svg>
+          </span>
+          {t.hero.secondaryCta}
+        </a>
+      </div>
+    </div>
+
+    <div
+      role="img"
+      aria-label={t.hero.editorPreviewLabel}
+      class="bg-graphite-deep rounded-[4px] border border-graphite overflow-hidden select-none"
+    >
+      <div class="flex items-center gap-3 px-4 py-2.5 border-b border-graphite">
+        <div class="flex gap-1.5" aria-hidden="true">
+          <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+          <div class="w-2.5 h-2.5 rounded-full bg-white/10"></div>
+        </div>
+        <span class="font-mono text-xs text-neon">00:00</span>
+        <div class="flex-1 h-px bg-graphite" aria-hidden="true"></div>
+        <span class="font-mono text-xs text-white/30">02:34</span>
+      </div>
+
+      <div class="px-4 py-4 border-b border-graphite">
+        <p class="text-white/30 text-xs font-mono mb-1" aria-hidden="true">
+          {t.hero.previewLyricTop}
+        </p>
+        <p class="text-white text-sm font-medium sweep-line" aria-hidden="true">
+          {t.hero.previewLyricMain}
+        </p>
+      </div>
+
+      <div class="px-2 py-3 border-b border-graphite">
+        <svg
+          viewBox="0 0 560 40"
+          class="w-full h-10"
+          aria-hidden="true"
+          preserveAspectRatio="none"
+        >
+          {waveHeights.map((h, i) => (
+            <rect
+              x={i * 7 + 1}
+              y={40 - h}
+              width="5"
+              height={h}
+              rx="1"
+              fill={i < playheadAt ? '#34d59a' : '#242628'}
+            />
+          ))}
+          <line
+            x1={playheadAt * 7 + 3.5}
+            y1="0"
+            x2={playheadAt * 7 + 3.5}
+            y2="40"
+            stroke="#34d59a"
+            stroke-width="1.5"
+            opacity="0.9"
+          />
+        </svg>
+      </div>
+
+      <div class="px-4 py-3 flex gap-1.5 flex-wrap" aria-hidden="true">
+        {syllables.map((syl, i) => (
+          <span
+            class={`font-mono text-xs px-2 py-0.5 rounded-[4px] border ${
+              i < 4
+                ? 'bg-neon/10 text-neon border-neon/30'
+                : 'bg-graphite text-white/40 border-graphite'
+            }`}
+          >
+            {syl}
+          </span>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .sweep-line {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+  .sweep-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(52, 213, 154, 0.35) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: neon-sweep 3s ease-in-out infinite;
+  }
+  @keyframes neon-sweep {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sweep-line::after { display: none; }
+  }
+</style>

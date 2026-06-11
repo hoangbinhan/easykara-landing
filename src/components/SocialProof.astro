@@ -1,0 +1,36 @@
+---
+import { en as t } from '../i18n/en';
+---
+
+<section class="py-16 border-y border-graphite" aria-labelledby="social-stat">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <p
+      id="social-stat"
+      class="text-center text-neon font-semibold text-sm tracking-wide uppercase mb-12"
+    >
+      {t.social.stat}
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {t.social.testimonials.map((item) => (
+        <figure class="bg-graphite-deep rounded-[4px] border border-graphite p-6 flex flex-col gap-4">
+          <blockquote class="text-white/75 text-sm leading-relaxed flex-1">
+            "{item.quote}"
+          </blockquote>
+          <figcaption class="flex items-center gap-3">
+            <div
+              class="w-9 h-9 rounded-full bg-neon/10 border border-neon/20 flex items-center justify-center text-neon text-sm font-bold flex-shrink-0"
+              aria-hidden="true"
+            >
+              {item.author[0]}
+            </div>
+            <div>
+              <p class="text-sm font-medium text-white">{item.author}</p>
+              <p class="text-xs text-white/40">{item.role}</p>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

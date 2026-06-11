@@ -1,0 +1,42 @@
+---
+import { en as t } from '../i18n/en';
+---
+
+<footer class="border-t border-graphite py-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+      <a href="/" aria-label={t.nav.logoAlt} class="flex items-center">
+        <span class="text-lg font-bold tracking-tight">
+          <span class="text-neon">Easy</span><span class="text-white">Kara</span>
+        </span>
+      </a>
+
+      <p class="text-sm text-white/35 order-last sm:order-none">
+        {t.footer.copyright}
+      </p>
+
+      <nav aria-label="Footer navigation" class="flex items-center gap-6">
+        <a
+          href="https://github.com/easykara"
+          class="text-sm text-white/50 hover:text-white transition-colors duration-200"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {t.footer.github}
+        </a>
+        <a
+          href="/privacy"
+          class="text-sm text-white/50 hover:text-white transition-colors duration-200"
+        >
+          {t.footer.privacy}
+        </a>
+        <a
+          href="/terms"
+          class="text-sm text-white/50 hover:text-white transition-colors duration-200"
+        >
+          {t.footer.terms}
+        </a>
+      </nav>
+    </div>
+  </div>
+</footer>

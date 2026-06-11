@@ -1,0 +1,27 @@
+---
+import { en as t } from '../i18n/en';
+---
+
+<section
+  id="pricing"
+  class="py-28 scroll-mt-16"
+  aria-labelledby="cta-title"
+>
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+    <h2
+      id="cta-title"
+      class="text-4xl sm:text-5xl font-bold mb-4 leading-tight"
+    >
+      {t.cta.headline}
+    </h2>
+    <p class="text-lg text-white/55 mb-10 leading-relaxed">
+      {t.cta.subtext}
+    </p>
+    <a
+      href="https://app.easykara.com"
+      class="inline-block bg-neon text-blackout font-semibold px-10 py-4 rounded-full text-lg hover:bg-neon/90 transition-colors duration-200"
+    >
+      {t.cta.button}
+    </a>
+  </div>
+</section>

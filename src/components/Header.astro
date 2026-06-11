@@ -1,0 +1,41 @@
+---
+import { en as t } from '../i18n/en';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-blackout/90 backdrop-blur-sm border-b border-graphite">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="/" aria-label={t.nav.logoAlt} class="flex items-center">
+      <span class="text-xl font-bold tracking-tight">
+        <span class="text-neon">Easy</span><span class="text-white">Kara</span>
+      </span>
+    </a>
+
+    <nav aria-label="Main navigation" class="hidden md:flex items-center gap-8">
+      <a
+        href="#features"
+        class="text-sm text-white/60 hover:text-white transition-colors duration-200"
+      >
+        {t.nav.features}
+      </a>
+      <a
+        href="#how-it-works"
+        class="text-sm text-white/60 hover:text-white transition-colors duration-200"
+      >
+        {t.nav.howItWorks}
+      </a>
+      <a
+        href="#pricing"
+        class="text-sm text-white/60 hover:text-white transition-colors duration-200"
+      >
+        {t.nav.pricing}
+      </a>
+    </nav>
+
+    <a
+      href="https://app.easykara.com"
+      class="bg-neon text-blackout text-sm font-semibold px-5 py-2 rounded-full hover:bg-neon/90 transition-colors duration-200"
+    >
+      {t.nav.tryFree}
+    </a>
+  </div>
+</header>
